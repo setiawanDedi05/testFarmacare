@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Switch } from "react-router-dom";
+import Home from './pages/home'
+import Details from "./pages/details";
+import { fetchPokemons} from "./redux/action";
+import Summary from "./pages/summary";
+import "./css/app.css"
+const App = () => { 
+    const dispatch = useDispatch()
+    const { pokemons } = useSelector((state) => state)
+    if (!pokemons.length) {
+        dispatch(fetchPokemons())
+    }
+    return (
+        <Switch>
+            <Route exact path="/">
+                <Home />
+            </Route>
+            <Route path="/details/:id">
+                <Details />
+            </Route>
+            <Route path="/summary">
+                <Summary />
+            </Route>
+        </Switch>
+    )
 }
 
-export default App;
+export default App
