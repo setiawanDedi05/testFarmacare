@@ -33,37 +33,29 @@ const TableSumaryPC = (props) => {
     return (
         <>
             <div style={{ marginTop: '40px', marginBottom: '8px' }}>
-                <label style={{
-                    //styleName: title-2;
-                    fontFamily: 'Rubik, sans serif',
-                    fontSize: '16px',
-                    fontStyle: 'normal',
-                    fontWeight: '700',
-                    lineHeight: '24px',
-                    letterSpacing: '-0.011em',
-                    textAlign: 'left'
-                }}>
+                <label className="text-sub">
                     Details stock opname
                 </label>
             </div>
-            <div className="header-div">
-                <div className="header-table">
-                    <div className="header-row">
-                        <div className="width-lg">Keterangan</div>
-                        <div className="width-lg">Detail</div>
-                        <div className="width-xsm" style={{marginRight:"50px"}}>Jumlah</div>
-                    </div>
+                <div className="table-summary">
+                    <div>Keterangan</div>
+                    <div>Detail</div>
+                    <div>Jumlah</div>
+                    <div></div>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', padding: '10px', borderBottom: '2px solid black' }}>
-                    <span style={{ fontSize: '12px' }}>{new Date().getHours()} : {new Date().getMinutes()}</span>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px' }}>
-                        <span className="text-data-table width-md">Hasil Update Stock</span>
-                        <label className="caption width-md" style={{marginRight:"50px"}}>{detail}</label>
-                        <span className="width-xsm" style={{ marginRight: "10px" }}>{total} pcs</span>
-                        <svg data-testid='edit-button' onClick={()=>setOpenModal(true)} width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.4001 3.34001L13.6601 0.60001C13.3024 0.264106 12.8338 0.0713693 12.3434 0.0584625C11.8529 0.0455557 11.3748 0.21338 11.0001 0.530011L2.00005 9.53001C1.67682 9.85598 1.47556 10.2832 1.43005 10.74L1.00005 14.91C0.986582 15.0565 1.00559 15.2041 1.05571 15.3424C1.10584 15.4807 1.18585 15.6062 1.29005 15.71C1.38349 15.8027 1.49431 15.876 1.61615 15.9258C1.73798 15.9756 1.86845 16.0008 2.00005 16H2.09005L6.26005 15.62C6.71685 15.5745 7.14409 15.3732 7.47005 15.05L16.4701 6.05001C16.8194 5.68098 17.0082 5.18852 16.995 4.68055C16.9819 4.17257 16.768 3.69052 16.4001 3.34001ZM6.08005 13.62L3.08005 13.9L3.35005 10.9L9.00005 5.32001L11.7001 8.02001L6.08005 13.62ZM13.0001 6.68001L10.3201 4.00001L12.2701 2.00001L15.0001 4.73001L13.0001 6.68001Z" fill="#006A7A" />
-                        </svg>
+                <div className="data-table-summary">
+                    <div style={{ display: 'flex', flexDirection: 'column', padding: '10px' }}>
+                        <span style={{ fontSize: '12px' }}>{new Date().getHours()} : {new Date().getMinutes()}</span>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px' }}>
+                            <span className="text-data-table width-md">Hasil Update Stock</span>
+                        </div>
                     </div>
+                    <div>
+                        <label className="caption width-md" style={{ marginRight: "50px" }}>{detail}</label></div>
+                    <div><span className="width-xsm" style={{ marginRight: "10px" }}>{total} pcs</span></div>
+                    <div><svg data-testid='edit-button' onClick={() => setOpenModal(true)} width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.4001 3.34001L13.6601 0.60001C13.3024 0.264106 12.8338 0.0713693 12.3434 0.0584625C11.8529 0.0455557 11.3748 0.21338 11.0001 0.530011L2.00005 9.53001C1.67682 9.85598 1.47556 10.2832 1.43005 10.74L1.00005 14.91C0.986582 15.0565 1.00559 15.2041 1.05571 15.3424C1.10584 15.4807 1.18585 15.6062 1.29005 15.71C1.38349 15.8027 1.49431 15.876 1.61615 15.9258C1.73798 15.9756 1.86845 16.0008 2.00005 16H2.09005L6.26005 15.62C6.71685 15.5745 7.14409 15.3732 7.47005 15.05L16.4701 6.05001C16.8194 5.68098 17.0082 5.18852 16.995 4.68055C16.9819 4.17257 16.768 3.69052 16.4001 3.34001ZM6.08005 13.62L3.08005 13.9L3.35005 10.9L9.00005 5.32001L11.7001 8.02001L6.08005 13.62ZM13.0001 6.68001L10.3201 4.00001L12.2701 2.00001L15.0001 4.73001L13.0001 6.68001Z" fill="#006A7A" />
+                    </svg></div>
                 </div>
                 <div style={{ display: 'flex', marginTop: '14px', justifyContent: "space-between" }}>
                     <span className="label-detail">
@@ -88,7 +80,6 @@ const TableSumaryPC = (props) => {
                         </button>
                     </div>
                 </div>
-            </div>
             {openModal ? <UpdateStockModal setOpenModal={setOpenModal} pokemon={pokemon} data={props.data} /> : null}
         </>
     )

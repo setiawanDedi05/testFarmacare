@@ -320,6 +320,20 @@ body{
     border-radius: 4px;
     color: #058992;
 }
+.table-summary{
+    display: grid;
+    grid-template-columns: 40% 50% 10% 10%;
+    border:none;
+    border-bottom: 2px solid black;
+}
+
+.data-table-summary{
+    display: grid;
+    grid-template-columns: 40% 50% 10% 10%;
+    border:none;
+    margin-top: 20px;
+    border-bottom: 2px solid black;
+}
 
 @media screen and (max-width: 600px) {
     .stack{
@@ -364,6 +378,20 @@ body{
         flex-direction: column;
         margin: 5%;
         justify-content: center;
+    }
+    .table-summary{
+        display: grid;
+        grid-template-columns: 40% 50% 10%;
+        border:none;
+        border-bottom: 2px solid black;
+    }
+
+    .data-table-summary{
+        display: grid;
+        grid-template-columns: 40% 50% 10%;
+        border:none;
+        margin-top: 20px;
+        border-bottom: 2px solid black;
     }
     .search-container{
         width: 95%;
