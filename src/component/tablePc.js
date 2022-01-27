@@ -19,7 +19,7 @@ const TablePc = (props) => {
                             <div className="width-sm" style={{color:"black"}}>{new Date(history.time).toDateString()}, {new Date(history.time).getHours()}: {new Date(history.time).getMinutes()}</div>
                             <div className="width-sm text-data-table">{history.title}</div>
                             <div className="width-sm">{history.note}</div>
-                            <div className="width-xsm text-total-table">{history.id > 1 ? `+${history.total}` : history.total}</div>
+                            <div className="width-xsm " style={history.id > 1 ? { color: '#219653'} : null}>{history.id > 1 ? `+${history.total}` : history.total}</div>
                             <div className="width-xsm">{history.stock_before}</div>
                         </div>
                     </div>
