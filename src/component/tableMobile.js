@@ -15,7 +15,7 @@ const TableMobile = (props) => {
                                 <span style={{ fontSize: '12px' }} data-testid="hours-history">{new Date(history.time).getHours()} : {new Date(history.time).getMinutes()}</span>
                                 <div className="data-row remove-line remove-margin">
                                     <span className="text-data-table width-lg">{history.title}</span>
-                                    <span className={!i ? "text-total-table space-column-data" : "text-total-before space-column-data"}>{i ? history.total : `+${history.total}`}</span>
+                                    <span className="space-column-data" style={history.id > 1 ? { color: '#219653' } : null}>{history.id > 1 ? `+${history.total}` : history.total}</span>
                                     <span className="space-column-data">{history.stock_before}</span>
                                 </div>
                                 <span className="label-detail">{history.note ? `"${history.note}"` : null}</span>
